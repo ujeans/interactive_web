@@ -205,7 +205,6 @@ body {
   background-image: url("./icons/light_house.png");
 }
 
-/* 스크롤에 따라 기울어지며 나타나는 이미지 */
 #panel1-img {
   overflow: hidden;
   margin-bottom: 500px;
@@ -213,9 +212,31 @@ body {
   height: 320px;
 }
 
-#flying-santa-img {
+#flying-santa-image {
   position: absolute;
   right: -80px;
   height: 310px;
-  transform: translate(80px, 13px) rotate(23deg);
+  transform: translate(80px, -13px) rotate(23deg);
+}
+
+#video-section {
+  margin-bottom: 1000px;
+}
+
+#video {
+  display: block;
+  margin: 0 auto;
+  height: 350px;
+}
+
+#fixed-description {
+  width: 622px;
+  margin: 30px auto 0;
+  color: white;
+  text-align: right;
+  line-height: 50px;
+  font-size: 35px;
+  font-weight: 600;
+  transform: translateY(100px);
+  opacity: 0;
 }
