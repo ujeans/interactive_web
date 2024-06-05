@@ -1,3 +1,8 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
 html,
 body,
 div,
@@ -220,7 +225,7 @@ body {
   height: 120px;
   border-radius: 50%;
   border: none;
-  color: rgba(213, 165, 78);
+  color: rgb(213, 165, 78);
   background-color: rgb(30, 64, 41);
   margin-top: -60px;
   margin-left: -60px;
@@ -293,7 +298,102 @@ body {
   top: 30vh;
   width: 100%;
   font-size: 7.5rem;
+  font-weight: 400;
   line-height: 8.625rem;
   color: rgb(213, 165, 78);
   text-align: center;
+}
+
+.poster__parallax {
+  position: relative;
+  height: 1500px;
+}
+
+.poster-image {
+  position: absolute;
+  opacity: 0;
+}
+
+.poster-image_wrapper {
+  position: absolute;
+  width: 100%;
+}
+
+#poster-image_wrapper_1 {
+  right: 0;
+  height: 100%;
+}
+
+#poster-image_wrapper_2 {
+  top: 10%;
+  left: 5%;
+  height: 667px;
+}
+
+#poster-image_wrapper_3 {
+  top: 35%;
+  right: 0;
+  height: 772px;
+}
+
+#poster-image_1 {
+  right: 0;
+  width: 1127px;
+}
+
+#poster-image_2 {
+  height: 100%;
+}
+
+#poster-image_3 {
+  right: 0;
+  height: 100%;
+}
+
+@keyframes appear-right-to-left {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear-left-to-right {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear-bottom-to-top {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.poster-image_state_visible #poster-image_1 {
+  animation: appear-right-to-left 0.75s ease;
+  animation-fill-mode: forwards;
+}
+
+.poster-image_state_visible #poster-image_2 {
+  animation: appear-left-to-right 0.75s ease;
+  animation-fill-mode: forwards;
+}
+
+.poster-image_state_visible #poster-image_3 {
+  animation: appear-bottom-to-top 0.75s ease;
+  animation-fill-mode: forwards;
 }
