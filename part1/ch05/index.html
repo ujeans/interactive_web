@@ -2,10 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
-    <title>Interactive web</title>
+    <title>Interactive Web</title>
   </head>
+
   <body>
     <div class="cursor">
       <div class="cursor__default">
@@ -15,17 +17,47 @@
         <span class="cursor__trace__inner"></span>
       </div>
     </div>
-    <section class="preloader">
+    <section class="preloader shown-area">
       <button class="preloader__btn">
         <span class="preloader__btn_hold">Hold</span>
       </button>
     </section>
 
-    <section class="header hidden-area">Header</section>
+    <section class="header hidden-area">
+      <span class="circle" id="circle-1"></span>
+      <span class="circle" id="circle-2"></span>
+      <img
+        id="cube__image_1"
+        src="./images/Lovepik_com-401467010-cube.png"
+        alt="cube image"
+        class="cube__image"
+      />
+      <img
+        id="cube__image_2"
+        src="./images/Lovepik_com-401467010-cube.png"
+        alt="cube image"
+        class="cube__image"
+      />
+      <img
+        id="cube__image_3"
+        src="./images/Lovepik_com-401467010-cube.png"
+        alt="cube image"
+        class="cube__image"
+      />
+      <img
+        id="cube__image_4"
+        src="./images/Lovepik_com-401467010-cube.png"
+        alt="cube image"
+        class="cube__image"
+      />
+      <h1 class="header__title">
+        <div>LAST ART</div>
+        <div>PROJECTS</div>
+      </h1>
+    </section>
   </body>
+
   <script>
-    // 마우스 움직임을 addEventListener로 달면 마우스를 빠르게 움직임이 끊기는 듯한 느낌을 받을 수 있다
-    // 자바스크립트의 request animation frame 방법으로 부드럽게 할 수 있음
     document.addEventListener("mousemove", e => {
       const cursorDefaultInner = document.querySelector(
         ".cursor__default__inner"
@@ -57,7 +89,7 @@
       cursor.appendChild(ripple);
 
       ripple.style.top = e.clientY - ripple.clientHeight / 2 + "px";
-      ripple.style.left = e.clientX - ripple.clientHeight / 2 + "px";
+      ripple.style.left = e.clientX - ripple.clientWidth / 2 + "px";
 
       ripple.addEventListener("animationend", () => {
         cursor.removeChild(ripple);
@@ -81,6 +113,8 @@
         1 - (scale - 1) / preloaderHideThreshold;
     }
 
+    const header = document.querySelector(".header");
+
     preloaderBtn.addEventListener("mousedown", () => {
       intervalId = setInterval(() => {
         scale += 0.175;
@@ -88,8 +122,6 @@
         setPreloaderStyle(scale);
 
         if (scale >= 1 + preloaderHideThreshold) {
-          const header = document.querySelector(".header");
-
           document.querySelector(".preloader").classList.add("hidden-area");
 
           header.classList.remove("hidden-area");
@@ -113,6 +145,35 @@
           clearInterval(intervalId);
         }
       }, 10);
+    });
+
+    header.addEventListener("mousemove", e => {
+      const xRelativeToHeader = e.clientX / header.clientWidth;
+      const yRelativeToHeader = e.clientY / header.clientHeight;
+
+      document.querySelector(".header__title").style.transform = `translate(${
+        xRelativeToHeader * -50
+      }px, ${yRelativeToHeader * -50}px)`;
+
+      document.querySelector("#circle-1").style.transform = `translate(${
+        xRelativeToHeader * -25
+      }px, ${yRelativeToHeader * -25}px)`;
+      document.querySelector("#circle-2").style.transform = `translate(${
+        xRelativeToHeader * 25
+      }px, ${yRelativeToHeader * 25}px)`;
+
+      document.querySelector("#cube__image_1").style.transform = `translate(${
+        xRelativeToHeader * -15
+      }px, ${yRelativeToHeader * -15}px)`;
+      document.querySelector("#cube__image_2").style.transform = `translate(${
+        xRelativeToHeader * -8
+      }px, ${yRelativeToHeader * -8}px)`;
+      document.querySelector("#cube__image_3").style.transform = `translate(${
+        xRelativeToHeader * -20
+      }px, ${yRelativeToHeader * -20}px)`;
+      document.querySelector("#cube__image_4").style.transform = `translate(${
+        xRelativeToHeader * 5
+      }px, ${yRelativeToHeader * 5}px)`;
     });
   </script>
 </html>
