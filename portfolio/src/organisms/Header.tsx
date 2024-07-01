@@ -4,7 +4,7 @@ import Navigation from "../molecules/Navigation";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between  items-center m-4 p-2 border-b border-gray-300">
+    <nav className="flex justify-between  items-center mx-8 p-3 border-b border-color3">
       <div className="flex items-center">
         <Logo />
         <Navigation />

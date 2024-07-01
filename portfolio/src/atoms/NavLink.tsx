@@ -4,7 +4,7 @@ interface NavLinkProps {
 
 const NavLink: React.FC<NavLinkProps> = ({ label }) => {
   return (
-    <a href="/" className="p-2 text-gray-700 hover:text-gray-900">
+    <a href="/" className="p-2 text-color3 hover:text-theme2">
       {label}
     </a>
   );
