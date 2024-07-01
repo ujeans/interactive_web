@@ -1,3 +1,4 @@
+import CarouselControls from "../molecules/CarouselControls";
 import ImagesInfo from "../molecules/ImagesInfo";
 import Slide from "../molecules/Slide";
 
@@ -10,6 +11,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
     <div className="carousel relative h-screen flex justify-center items-center flex-col">
       <Slide src={images[0].src} alt={"dd"} />
       <ImagesInfo />
+      <CarouselControls />
     </div>
   );
 };

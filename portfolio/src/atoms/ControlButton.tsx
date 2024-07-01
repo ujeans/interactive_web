@@ -1,14 +1,17 @@
 interface ButtonProps {
+  direction: "prev" | "next";
   onClick: () => void;
-  label: string;
 }
 
-const MoveButton: React.FC<ButtonProps> = ({ onClick, label }) => {
+const ControlButton: React.FC<ButtonProps> = ({ direction, onClick }) => {
   return (
-    <button onClick={onClick} className="p-2 bg-blue-500 text-white rounded">
-      {label}
+    <button
+      onClick={onClick}
+      className="w-40 h-40 border border-theme2 text-white rounded-full flex justify-center items-center"
+    >
+      {direction === "prev" ? "<" : ">"}
     </button>
   );
 };
 
-export default MoveButton;
+export default ControlButton;
