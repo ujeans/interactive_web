@@ -7,7 +7,7 @@ const ControlButton: React.FC<ButtonProps> = ({ direction, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="w-40 h-40 border border-theme2 text-white rounded-full flex justify-center items-center"
+      className="w-50 h-50 mr-8 border border-theme2 text-white rounded-full flex justify-center items-center"
     >
       {direction === "prev" ? "<" : ">"}
     </button>

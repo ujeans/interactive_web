@@ -3,7 +3,7 @@ import NavLink from "../atoms/NavLink";
 
 const Navigation: React.FC = () => {
   return (
-    <div className="flex ml-4">
+    <div className="flex ml-20">
       <NavLink label="Home" />
       <NavLink label="Home" />
       <NavLink label="Home" />
